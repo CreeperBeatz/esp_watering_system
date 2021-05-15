@@ -5,16 +5,11 @@
 
 // INTERNET CONNECTION
 
-const char* ssid = "VIVACOM_NET";
-const char* password = "12345678";
 
-String serverName = "192.168.1.7:4000/documents/phptest/esp_data_handler.php";
-
-String apiKey = "r23jo2"; //sync with php file
 
 // DHT CONFIGURATION
 
-#define PIN_DHT                   34
+#define PIN_DHT                   25
 #define DHTTYPE                   DHT22
 
 // LDR CONFIGURATION

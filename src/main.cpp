@@ -8,7 +8,14 @@
 
 // delay between sending data to db
 unsigned long lastTime = 0;
-unsigned long timerDelay = 10000;
+unsigned long timerDelay = 360000;
+
+const char* ssid = "VIVACOM_NET";
+const char* password = "12345678";
+
+String serverName = "http://377bfaf0ecc6.eu.ngrok.io/documents/phptest/esp_data_handler.php";
+
+String apiKey = "r23jo2"; //sync with php file
 
 //FIXME bandage fix
 DHT dht(PIN_DHT, DHTTYPE);
@@ -17,8 +24,8 @@ VaseSensors sensors;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-
-  sensors.begin(dht);
+  dht.begin();
+  sensors.begin();
 
   WiFi.begin(ssid, password);
   Serial.println("Connecting");

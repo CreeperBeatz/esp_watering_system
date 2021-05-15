@@ -24,7 +24,7 @@ class VaseSensors
     public:
         VaseSensors();
         void makeMeasurements(DHT);
-        void begin(DHT);
+        void begin();
 
         float getLight();
         float getHumidity();

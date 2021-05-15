@@ -9,12 +9,12 @@ VaseSensors::VaseSensors() {
     moisture = 0;
 }
 
-void VaseSensors::begin(DHT dht) {
-    pinMode(PIN_DHT, INPUT);
+void VaseSensors::begin() {
+    //pinMode(PIN_DHT, INPUT);
     pinMode(LDR_PIN, INPUT);
     pinMode(PIN_SOIL, INPUT);
 
-    dht.begin();
+    
 
     light = humidity = temp = (float)0;
     moisture = 0;
