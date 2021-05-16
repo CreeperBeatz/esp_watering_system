@@ -10,13 +10,6 @@
 unsigned long lastTime = 0;
 unsigned long timerDelay = 360000;
 
-const char* ssid = "VIVACOM_NET";
-const char* password = "12345678";
-
-String serverName = "http://377bfaf0ecc6.eu.ngrok.io/documents/phptest/esp_data_handler.php";
-
-String apiKey = "r23jo2"; //sync with php file
-
 //FIXME bandage fix
 DHT dht(PIN_DHT, DHTTYPE);
 VaseSensors sensors;
@@ -47,10 +40,12 @@ void loop() {
     if(WiFi.status() == WL_CONNECTED) {
       HTTPClient http;
 
-      http.begin(serverName.c_str());
+      http.begin(serverName);
       http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
-      String httpRequestData = "ApiKey=" + apiKey + "&AirTemperature=" + String(sensors.getTemperature()) + "&AirHumidity=" 
+      //String tempBandage = apiKey;
+
+      String httpRequestData = "ApiKey=" + String(apiKey) + "&AirTemperature=" + String(sensors.getTemperature()) + "&AirHumidity=" 
                               + String(sensors.getHumidity()) + "&SoilMoisture=" + String(sensors.getMoisture()) + "&Light=" +
                               String(sensors.getLight());
 

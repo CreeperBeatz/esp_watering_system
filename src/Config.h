@@ -5,7 +5,13 @@
 
 // INTERNET CONNECTION
 
+#define ssid "VIVACOM_NET"
+#define password "12345678"
 
+#define serverName "http://377bfaf0ecc6.eu.ngrok.io/documents/phptest/esp_data_handler.php"
+
+//sync with php file
+#define apiKey "r23jo2" 
 
 // DHT CONFIGURATION
 
