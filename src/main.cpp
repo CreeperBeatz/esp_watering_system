@@ -8,7 +8,9 @@
 
 // delay between sending data to db
 unsigned long lastTime = 0;
-unsigned long timerDelay = 360000;
+unsigned long timerDelay = interval;
+
+String serverName = SERVER_NAME;
 
 //FIXME bandage fix
 DHT dht(PIN_DHT, DHTTYPE);
@@ -40,10 +42,8 @@ void loop() {
     if(WiFi.status() == WL_CONNECTED) {
       HTTPClient http;
 
-      http.begin(serverName);
+      http.begin(serverName.c_str());
       http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-
-      //String tempBandage = apiKey;
 
       String httpRequestData = "ApiKey=" + String(apiKey) + "&AirTemperature=" + String(sensors.getTemperature()) + "&AirHumidity=" 
                               + String(sensors.getHumidity()) + "&SoilMoisture=" + String(sensors.getMoisture()) + "&Light=" +
